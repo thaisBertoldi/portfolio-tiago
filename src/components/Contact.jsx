@@ -1,12 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import Title from "components/Title";
 import { contactAnimations } from "animations";
+import Title from "components/Title";
 import { motion } from "framer-motion";
+import Notiflix from "notiflix";
+import { BsFacebook, BsInstagram, BsWhatsapp } from "react-icons/bs";
+import styled from "styled-components";
 import { useScroll } from "./useScroll";
 
 function Contact() {
   const [element, controls] = useScroll();
+  
+  const sendMessage = () => {
+    Notiflix.Notify.success('Mensagem enviada com sucesso!')
+  }
+
   return (
     <Section id="contact" ref={element}>
       <Title value="contact" />
@@ -21,38 +27,33 @@ function Contact() {
         }}
       >
         <div className="contact__title">
-          <p>Stay in touch with us</p>
-          <h2>Contacto ipsam donec setem quia lipsum</h2>
+          <p>Contato</p>
+          <h2>Continue em contato comigo!</h2>
         </div>
         <div className="contact__data">
           <div className="contact__data__description">
-            <h4>Use from on the right to contact us or just to say hi!</h4>
+            <h4>Use o espaço à direita para me enviar críticas ou sugestões</h4>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa,
-              nulla?
+            Continue em contato comigo através das redes sociais ou envie-me uma mensagem
+            através da caixa ao lado.
             </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quod
-              molestias animi, ad quibusdam et accusantium nisi architecto at
-              vitae
-            </p>
-            <div>
-              <p>
-                <strong>Address:</strong> Some Street India
-              </p>
-              <p>
-                <strong>Email:</strong> kishansheth21@gmail.com
-              </p>
-              <p>
-                <strong>Website:</strong> www.yourwebsite.com
-              </p>
+            <div className="links-contact">
+              <LinkIcon  href="https://www.facebook.com/tiaguinho.almeida.90" rel="noreferrer" target="_blank">
+                <BsFacebook />
+              </LinkIcon >
+              <LinkIcon  href="https://contate.me/tiago.almeida" rel="noreferrer" target="_blank">
+                <BsWhatsapp />
+              </LinkIcon >
+              <LinkIcon  href="https://www.instagram.com/tiagobzp/" rel="noreferrer" target="_blank">
+                <BsInstagram />
+              </LinkIcon >
             </div>
           </div>
           <div className="contact__data__form">
-            <input type="text" placeholder="name" />
+            <input type="text" placeholder="nome" />
             <input type="email" placeholder="email" />
-            <textarea placeholder="message"></textarea>
-            <button>Send Message</button>
+            <textarea placeholder="mensagem"></textarea>
+            <button onClick={() => sendMessage()} type="submit">Enviar mensagem</button>
           </div>
         </div>
       </motion.div>
@@ -146,6 +147,11 @@ const Section = styled.section`
         }
       }
     }
+    .links-contact {
+      display: flex;
+      gap: 15px;
+      font-size: 40px;
+    }
   }
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     .contact {
@@ -176,6 +182,19 @@ const Section = styled.section`
         }
       }
     }
+  }
+`;
+
+const LinkIcon = styled.a`
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: var(--primary-color);
+  :hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    color: var(--secondary-color);
   }
 `;
 

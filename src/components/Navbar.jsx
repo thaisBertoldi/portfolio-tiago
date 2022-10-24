@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import logo from "assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import { motion } from "framer-motion";
@@ -21,9 +20,6 @@ export default function Navbar() {
       animate={controls}
     >
       <div className="brand__container">
-        <a href="#" className="brand">
-          <img src={logo} alt="Logo" />
-        </a>
         <div className="toggle">
           {isNavOpen ? (
             <MdClose onClick={() => setIsNavOpen(false)} />
@@ -40,16 +36,10 @@ export default function Navbar() {
       <div className={`links ${isNavOpen ? "show" : ""}`}>
         <ul>
           <li className="active">
-            <a href="#home">Home</a>
+            <a href="#home">Página Inicial</a>
           </li>
           <li>
-            <a href="#services">Services</a>
-          </li>
-          <li>
-            <a href="#portfolio">Portfolio</a>
-          </li>
-          <li>
-            <a href="#blog">Blog</a>
+            <a href="#portfolio">Projetos</a>
           </li>
           <li>
             <a href="#skills">Skills</a>

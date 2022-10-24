@@ -1,25 +1,18 @@
-import React from "react";
+import { portfolioAnimation } from "animations";
+import placeholder from "assets/placeholder.png";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import Title from "./Title";
-import placeholder from "assets/placeholder.png";
-import loadmore from "assets/loadmore.png";
-import portfolio1 from "assets/portfolio1.png";
-import portfolio2 from "assets/portfolio2.png";
-import { motion } from "framer-motion";
 import { useScroll } from "./useScroll";
-import { portfolioAnimation } from "animations";
+
 function Portfolio() {
   const [element, controls] = useScroll();
   return (
     <Section id="portfolio" ref={element}>
-      <Title value="Portfolio" />
-      <div className="background">
-        <img src={portfolio1} alt="Design" className="design1" />
-        <img src={portfolio2} alt="Design" className="design2" />
-      </div>
+      <Title value="Projetos" />
       <div className="portfolio__title">
-        <p>Our Work</p>
-        <h2>Check our super awesome portfolio</h2>
+        <p>Projetos</p>
+        <h2>Alguns projetos realizados em Java</h2>
       </div>
       <div className="grid">
         <motion.div
@@ -126,10 +119,6 @@ function Portfolio() {
         >
           <img src={placeholder} alt="placeholder" />
         </motion.div>
-      </div>
-      <div className="portfolio-more">
-        <span>Load More</span>
-        <img src={loadmore} alt="Load More" />
       </div>
     </Section>
   );

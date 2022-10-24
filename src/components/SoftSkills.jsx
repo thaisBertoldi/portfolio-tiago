@@ -1,85 +1,39 @@
-import React, { Fragment } from "react";
-import styled from "styled-components";
-import play from "assets/play.png";
-import Title from "./Title";
-import pricing1 from "assets/pricing1.png";
-import pricing2 from "assets/pricing2.png";
-import { motion } from "framer-motion";
-import { useScroll } from "./useScroll";
 import { pricingAnimations } from "animations";
-export default function Pricing() {
+import { motion } from "framer-motion";
+import styled from "styled-components";
+import Title from "./Title";
+import { useScroll } from "./useScroll";
+
+export default function SoftSkills() {
   const [element, controls] = useScroll();
 
   const plans = [
     {
-      name: "Basic",
-      price: 9,
+      name: "Comunicação",
     },
     {
-      name: "Pro",
-      price: 29,
+      name: "Atitude positiva",
     },
     {
-      name: "Expert",
-      price: 49,
-    },
-  ];
-  const data = [
-    {
-      value: "25 Users per Project",
-      type: "Basic",
+      name: "Solução de problemas",
     },
     {
-      value: "100 Projects",
-      type: "Basic",
-    },
-    {
-      value: "10 TB Cloud Storage",
-      type: "Basic",
-    },
-    {
-      value: "50 Reports",
-      type: "Basic",
-    },
-    {
-      value: "100 GB Bandwidth",
-      type: "Basic",
-    },
-    {
-      value: "50 Support Tickets",
-      type: "Basic",
-    },
-    {
-      value: "Online Support",
-      type: "Pro",
-    },
-    {
-      value: "Daily Backup",
-      type: "Pro",
-    },
-    {
-      value: "Priority Assistance",
-      type: "Expert",
-    },
-    {
-      value: "One Click Setup",
-      type: "Expert",
+      name: "adaptabilidade",
     },
   ];
 
   return (
     <Section ref={element}>
-      <Title value="pricing" />
-      <div className="background">
-        <img src={pricing1} alt="background" className="bg1" />
-        <img src={pricing2} alt="background" className="bg2" />
-      </div>
+      <Title value="soft skills" />
       <div className="pricing__title">
-        <p>Find your pricing plan</p>
-        <h2>With pretty stories for which there is little good evidence</h2>
+        <p>Minhas Soft Skills</p>
+        <h2>
+          Competências adquiridas a partir do desenvolvimento da inteligência
+          emocional
+        </h2>
       </div>
       <div className="pricing">
-        {plans.map(({ name, price }, index) => {
+        {plans.map(({ name }, index) => {
           return (
             <motion.div
               className="pricing__plan"
@@ -95,39 +49,6 @@ export default function Pricing() {
             >
               <div className="pricing__plan__name">
                 <h2>{name}</h2>
-                <div className="pricing__plan__name__price">
-                  <span>$</span>
-                  <p>{price}</p>
-                </div>
-              </div>
-              <div className="pricing__plan__content">
-                <ul className={`pricing__plan__content__features ${name}`}>
-                  {data.map(({ value, type }, index2) => {
-                    return (
-                      <Fragment key={index2}>
-                        {name === "Basic" ? (
-                          type === name ? (
-                            <li>{value}</li>
-                          ) : (
-                            <li className="line">{value}</li>
-                          )
-                        ) : name === "Pro" ? (
-                          type === "Basic" || type === name ? (
-                            <li>{value}</li>
-                          ) : (
-                            <li className="line">{value}</li>
-                          )
-                        ) : (
-                          name === "Expert" && <li>{value}</li>
-                        )}
-                      </Fragment>
-                    );
-                  })}
-                </ul>
-                <div className="pricing__plan__content__actions">
-                  <span>Order Now</span>
-                  <img src={play} alt="order now" />
-                </div>
               </div>
             </motion.div>
           );
@@ -169,7 +90,8 @@ const Section = styled.section`
   }
   .pricing {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
     padding: 0 10rem;
     &__plan {
       display: flex;
@@ -185,32 +107,16 @@ const Section = styled.section`
       }
       &__name {
         background-color: var(--primary-color);
-        width: 15rem;
-        height: 15rem;
+        width: 100%;
+        height: 13rem;
         border-radius: 10rem;
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
         color: var(--secondary-color);
         h2 {
-          font-size: 2rem;
-          line-height: 1.3rem;
-        }
-        &__price {
-          color: white;
-          display: flex;
-          position: relative;
-          span {
-            position: absolute;
-            top: 1rem;
-            left: -0.9rem;
-            font-size: 1.3rem;
-          }
-          p {
-            font-size: 4rem;
-            font-weight: bold;
-          }
+          font-size: 1.5rem;
+          line-height: 1rem;
         }
       }
       &__content {
@@ -219,7 +125,6 @@ const Section = styled.section`
           text-align: center;
           color: var(--primary-color);
           display: flex;
-          flex-direction: column;
           gap: 0.6rem;
           .line {
             text-decoration: line-through;
@@ -229,7 +134,6 @@ const Section = styled.section`
 
         &__actions {
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
           color: var(--primary-color);

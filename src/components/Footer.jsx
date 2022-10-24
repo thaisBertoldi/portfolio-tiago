@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { BsBehance, BsFacebook, BsTwitter, BsYoutube } from "react-icons/bs";
-import { useScroll } from "./useScroll";
 import { footerLogoAnimations, footerTextAnimations } from "animations";
 import { motion } from "framer-motion";
+import { BsFacebook, BsGithub, BsInstagram, BsWhatsapp } from "react-icons/bs";
+import styled from "styled-components";
+import { useScroll } from "./useScroll";
+
 function Footer() {
   const [element, controls] = useScroll();
   return (
@@ -17,7 +17,6 @@ function Footer() {
           duration: 0.8,
         }}
       >
-        &copy; Template created with love by Kishan Sheth
       </motion.span>
       <motion.div
         className="footer__social__icons"
@@ -29,10 +28,10 @@ function Footer() {
           duration: 0.8,
         }}
       >
-        <BsBehance />
-        <BsTwitter />
         <BsFacebook />
-        <BsYoutube />
+        <BsWhatsapp />
+        <BsInstagram />
+        <BsGithub />
       </motion.div>
     </Foot>
   );

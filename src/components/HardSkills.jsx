@@ -1,45 +1,39 @@
-import React from "react";
-import styled from "styled-components";
-import Title from "./Title";
-import skills1 from "assets/skills1.png";
-import skills2 from "assets/skills2.png";
 import { skillsBarAnimations } from "animations";
 import { motion } from "framer-motion";
+import styled from "styled-components";
+import Title from "./Title";
 import { useScroll } from "./useScroll";
-function Skills() {
+
+function HardSkills() {
   const [element, controls] = useScroll();
   const skillsData = [
     {
-      name: "creativity",
+      name: "Docker",
       amount: 75,
     },
     {
-      name: "coding",
+      name: "Java",
       amount: 50,
     },
     {
-      name: "react",
+      name: "Spring",
       amount: 90,
     },
     {
-      name: "marketing",
+      name: "MongoDB",
       amount: 70,
     },
     {
-      name: "design",
+      name: "Postman",
       amount: 30,
     },
   ];
   return (
     <Section id="skills" ref={element}>
-      <Title value="skills" />
-      <div className="background">
-        <img src={skills1} alt="skills design" className="design1" />
-        <img src={skills2} alt="skills design" className="design2" />
-      </div>
+      <Title value="hard skills" />
       <div className="skills__title">
-        <p>Our Skills</p>
-        <h2>Check our super awesome skills</h2>
+        <p>Minhas Skills</p>
+        <h2>Estas são minhas hard skills atualmente</h2>
       </div>
       <div className="skills">
         <div className="skills__bars">
@@ -68,12 +62,13 @@ function Skills() {
         </div>
         <div className="skills__content">
           <p className="title">
-            Lorem ipsum dolor, sit amet consectetur impedit?
+            Competências técnicas
           </p>
           <p className="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis eius
-            cupiditate incidunt distinctio velit quos dolore, ut, tempore
-            suscipit impedit reiciendis voluptas, illo expedita! Necessitatibus!
+          Trabalho diariamente com tecnologias como: 
+          MongoDB, Oracle, Java, JavaScript, monitoração de filas via RabbitMQ e Zabbix, 
+          analisando a saúde do sistema, criando documentação utilizando 
+          confluence, referenciando tarefas em cards utilizando Jira
           </p>
         </div>
       </div>
@@ -223,4 +218,4 @@ const Section = styled.section`
   }
 `;
 
-export default Skills;
+export default HardSkills;
